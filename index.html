@@ -7,8 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <style>
-    /* #da000d */
-
     body {
       margin: 2px;
       width: calc(100% - 2px);
@@ -101,7 +99,8 @@
       padding-bottom: 5px;
     }
 
-    .toggle-container h4 {
+    .toggle-container,
+    .radio-container h4 {
       margin: 5px 0;
     }
 
@@ -122,6 +121,9 @@
     /* radio toggle */
 
     .radio-container {
+      text-align: center;
+    }
+    .radio-container-inner {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -129,12 +131,14 @@
     }
 
     .radio-btn {
-      border: 3px solid #1a1a1a;
+      border: 3px solid #666;
       display: inline-block;
       padding: 7px;
       position: relative;
       text-align: center;
       transition: background 600ms ease, color 600ms ease;
+      font-weight: bold;
+      color: #666;
     }
 
     input[type="radio"].radio-toggle {
@@ -149,11 +153,10 @@
 
     input[type="radio"].radio-toggle+label:hover {
       background: none;
-      /* color: #1a1a1a; */
     }
 
     input[type="radio"].radio-toggle+label:after {
-      background: #1a1a1a;
+      background: #666;
       content: "";
       height: 100%;
       position: absolute;
@@ -296,7 +299,7 @@ body {
     }
 
     .tgl-light+.tgl-btn {
-      background: #f0f0f0;
+      background: #ddd;
       border-radius: 2em;
       padding: 2px;
       transition: all .4s ease;
@@ -587,13 +590,31 @@ body {
     <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
   </div>
 
-  <h2>RADIO-SWITCH</h2>
+  <h2>RADIO-SWITCH med översikt/inzoomat</h2>
   <div class="page-container">
     <div class="radio-container">
       <input id="radio-toggle-on" class="radio-toggle radio-toggle-left" name="radio" value="" type="radio" checked="checked">
       <label for="radio-toggle-on" class="radio-btn">Översikt</label>
       <input id="radio-toggle-off" class="radio-toggle radio-toggle-right" name="radio" value="" type="radio">
       <label for="radio-toggle-off" class="radio-btn">Inzoomat</label>
+    </div>
+    <h3>ernie torsdag</h3>
+    <div class="image-wrap image-wrap--animated"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
+        alt="Image Title"></div>
+    <h3>ernie fredag</h3>
+    <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
+  </div>
+
+  <h2>RADIO-SWITCH med ja/nej</h2>
+  <div class="page-container">
+    <div class="radio-container">
+      <h4>Stora bilder</h4><br>
+      <div class="radio-container-inner">
+          <input id="radio-toggle-on3" class="radio-toggle radio-toggle-left" name="radio3" value="" type="radio" checked="checked">
+          <label for="radio-toggle-on3" class="radio-btn">Nej</label>
+          <input id="radio-toggle-off3" class="radio-toggle radio-toggle-right" name="radio3" value="" type="radio">
+          <label for="radio-toggle-off3" class="radio-btn">Ja</label>
+      </div>
     </div>
     <h3>ernie torsdag</h3>
     <div class="image-wrap image-wrap--animated"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
@@ -623,44 +644,44 @@ body {
 
 
   <h2>ÖVERSIKT: olika varianter av knappar</h2>
+  <div class="page-container">
+
   <ul class="tg-list">
-    <li class="tg-list-item">
-      <h4>Light</h4>
-      <input class="tgl tgl-light" id="cb11" type="checkbox">
-      <label class="tgl-btn" for="cb11"></label>
-    </li>
-    <li class="tg-list-item">
-      <h4>Skewed</h4>
-      <input class="tgl tgl-skewed" id="cb33" type="checkbox">
-      <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb33"></label>
-    </li>
-    <li class="tg-list-item">
-      <h4>Flat</h4>
-      <input class="tgl tgl-flat" id="cb44" type="checkbox">
-      <label class="tgl-btn" for="cb44"></label>
-    </li>
-    <li class="tg-list-item">
-      <h4>Flip</h4>
-      <input class="tgl tgl-flip" id="cb55" type="checkbox">
-      <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb55"></label>
-    </li>
-    <li class="tg-list-item">
-      <h4>IOS-style</h4>
-      <input class="tgl tgl-ios" id="cb99" type="checkbox">
-      <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb99"></label>
-    </li>
-    <li class="tg-list-item">
-      <h4>Two-value</h4>
-
-      <input id="radio-toggle-on2" class="radio-toggle radio-toggle-left" name="radio2" value="" type="radio" checked="checked">
-      <label for="radio-toggle-on2" class="radio-btn">No</label>
-      <input id="radio-toggle-off2" class="radio-toggle radio-toggle-right" name="radio2" value="" type="radio">
-      <label for="radio-toggle-off2" class="radio-btn">Yes</label>
-
-    </li>
-  </ul>
-
-  <br><br><br>
+      <li class="tg-list-item">
+          <h4>Flat</h4>
+          <input class="tgl tgl-flat" id="cb44" type="checkbox">
+          <label class="tgl-btn" for="cb44"></label>
+        </li>
+      <li class="tg-list-item">
+        <h4>Skewed</h4>
+        <input class="tgl tgl-skewed" id="cb33" type="checkbox">
+        <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb33"></label>
+      </li>
+      <li class="tg-list-item">
+          <h4>Light</h4>
+          <input class="tgl tgl-light" id="cb11" type="checkbox">
+          <label class="tgl-btn" for="cb11"></label>
+        </li>
+      <li class="tg-list-item">
+        <h4>Flip</h4>
+        <input class="tgl tgl-flip" id="cb55" type="checkbox">
+        <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb55"></label>
+      </li>
+      <li class="tg-list-item">
+        <h4>IOS-style</h4>
+        <input class="tgl tgl-ios" id="cb99" type="checkbox">
+        <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb99"></label>
+      </li>
+      <li class="tg-list-item">
+        <h4>Radio-switcher</h4>
+        <input id="radio-toggle-on2" class="radio-toggle radio-toggle-left" name="radio2" value="" type="radio" checked="checked">
+        <label for="radio-toggle-on2" class="radio-btn">No</label>
+        <input id="radio-toggle-off2" class="radio-toggle radio-toggle-right" name="radio2" value="" type="radio">
+        <label for="radio-toggle-off2" class="radio-btn">Yes</label>
+  
+      </li>
+    </ul>
+  </div>
 
   <script>
     (function () {
