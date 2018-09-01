@@ -570,6 +570,9 @@ body {
         el.addEventListener('click', function (event) {
           el.classList.remove("image-wrap--animated");
         });
+        el.addEventListener('ontouchstart', function (event) {
+          el.classList.remove("image-wrap--animated");
+        });
       });
     })();
   </script>
