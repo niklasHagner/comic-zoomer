@@ -13,7 +13,11 @@
       padding: 0;
       background-color: #f2f2f2;
     }
-    h1,h2,h3,h4 {
+
+    h1,
+    h2,
+    h3,
+    h4 {
       color: #777;
     }
 
@@ -28,6 +32,7 @@
 
     .image-wrap {
       overflow-x: scroll;
+      position: relative;
     }
 
     .image-wrap img {
@@ -38,6 +43,23 @@
       right: 0;
       margin: auto;
       overflow: hidden;
+    }
+
+    .image-wrap--animated:after {
+      content: "";
+      width: 44px;
+      min-width: 44px;
+      height: 44px;
+      background-position: -240px -510px;
+      background-size: 750px 740px;
+      background-repeat: no-repeat;
+      background-image: url(https://cdn01.dn-static.se/dnse/alma-sprite-f9a14a2b.svg);
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      margin-top: -22px;
+      -webkit-animation: zoomHintAnimation 1.25s ease-in-out infinite alternate;
+      animation: zoomHintAnimation 1.25s ease-in-out infinite alternate;
     }
 
     img.comic {
@@ -66,12 +88,23 @@
       padding-top: 5px;
       padding-bottom: 5px;
     }
+
     .toggle-container h4 {
       margin: 5px 0;
     }
 
     .wide+.tgl-btn {
       width: 120px !important;
+    }
+
+    @keyframes zoomHintAnimation {
+      from {
+        transform: translate(0, 0);
+      }
+
+      from {
+        transform: translate(-50px, 0);
+      }
     }
 
     /*html,
@@ -375,13 +408,13 @@ body {
       transform: rotateY(20deg);
     }
   </style>
-</head> 
+</head>
 
 <body>
   <h1>Test: toggle-knapp för zoom av serier</h1>
   <h3>provkör i mobilen och rösta på vilken toggle-switch som känns bäst</h3>
   <hr>
-  
+
   <h2>IOS-STYLE</h2>
   <div class="page-container">
     <div class="toggle-container">
@@ -390,10 +423,10 @@ body {
       <label class="tgl-btn" for="cb2"></label>
     </div>
     <h3>ernie torsdag</h3>
-    <div class="image-wrap"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
+    <div class="image-wrap image-wrap--animated"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
         alt="Image Title"></div>
     <h3>ernie fredag</h3>
-    <div class="image-wrap"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
+    <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
   </div>
 
   <h2>SKEWED-STYLE med ja/nej</h2>
@@ -404,10 +437,10 @@ body {
       <label class="tgl-btn" data-tg-off="Nej" data-tg-on="Ja" for="cb3"></label>
     </div>
     <h3>ernie torsdag</h3>
-    <div class="image-wrap"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
+    <div class="image-wrap image-wrap--animated"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
         alt="Image Title"></div>
     <h3>ernie fredag</h3>
-    <div class="image-wrap"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
+    <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
   </div>
 
   <h2>SKEWED-STYLE med inzoomat/utzoomat</h2>
@@ -418,10 +451,10 @@ body {
       <label class="tgl-btn" data-tg-off="Utzoomat" data-tg-on="Inzoomat" for="cbSkew2"></label>
     </div>
     <h3>ernie torsdag</h3>
-    <div class="image-wrap"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
+    <div class="image-wrap image-wrap--animated"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
         alt="Image Title"></div>
     <h3>ernie fredag</h3>
-    <div class="image-wrap"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
+    <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
   </div>
 
   <h2>FLIP-STYLE med inzoomat/utzoomat</h2>
@@ -432,10 +465,10 @@ body {
       <label class="tgl-btn" data-tg-off="Utzoomat" data-tg-on="Inzoomat" for="cbInzoomatSkew"></label>
     </div>
     <h3>ernie torsdag</h3>
-    <div class="image-wrap"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
+    <div class="image-wrap image-wrap--animated"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
         alt="Image Title"></div>
     <h3>ernie fredag</h3>
-    <div class="image-wrap"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
+    <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
   </div>
 
 
@@ -447,10 +480,10 @@ body {
       <label class="tgl-btn" data-tg-off="Nej" data-tg-on="Ja" for="cbJaNej"></label>
     </div>
     <h3>ernie torsdag</h3>
-    <div class="image-wrap"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
+    <div class="image-wrap image-wrap--animated"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
         alt="Image Title"></div>
     <h3>ernie fredag</h3>
-    <div class="image-wrap"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
+    <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
   </div>
 
   <h2>FLAT-STYLE</h2>
@@ -461,10 +494,10 @@ body {
       <label class="tgl-btn" data-tg-off="Utzoomat" data-tg-on="Inzoomat" for="cbFlat1"></label>
     </div>
     <h3>ernie torsdag</h3>
-    <div class="image-wrap"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
+    <div class="image-wrap image-wrap--animated"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
         alt="Image Title"></div>
     <h3>ernie fredag</h3>
-    <div class="image-wrap"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
+    <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
   </div>
 
   <h2>LIGHT IOS-STYLE</h2>
@@ -475,10 +508,10 @@ body {
       <label class="tgl-btn" for="cb1"></label>
     </div>
     <h3>ernie torsdag</h3>
-    <div class="image-wrap"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
+    <div class="image-wrap image-wrap--animated"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
         alt="Image Title"></div>
     <h3>ernie fredag</h3>
-    <div class="image-wrap"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
+    <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
   </div>
 
   <br>
@@ -527,10 +560,15 @@ body {
           var comics = [...el.parentElement.parentElement.querySelectorAll(".comic")];
           comics.forEach((comic) => {
             comic.classList.toggle("comic--small");
-          })
-          setTimeout(() => {
-            // window.scroll(0, el.offsetTop - btnDistanceFromViewportTop);
-          }, 100)
+            comic.parentElement.classList.toggle("image-wrap--animated");
+          });
+        });
+      });
+
+      var comicImageWrappers = [...document.querySelectorAll(".image-wrap")];
+      comicImageWrappers.forEach((el) => {
+        el.addEventListener('click', function (event) {
+          el.classList.remove("image-wrap--animated");
         });
       });
     })();
