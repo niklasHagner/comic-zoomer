@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <style>
+    /* #da000d */
+
     body {
       margin: 2px;
       width: calc(100% - 2px);
@@ -62,6 +64,16 @@
       animation: zoomHintAnimation 1.25s ease-in-out infinite alternate;
     }
 
+    .image-wrap--gradient {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 100%;
+      background-image: linear-gradient(90deg, transparent 0%, black 100%);
+    }
+
     img.comic {
       width: 900px;
       max-height: unset;
@@ -107,6 +119,80 @@
       }
     }
 
+    /* radio toggle */
+
+    .radio-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: -1;
+    }
+
+    .radio-btn {
+      border: 3px solid #1a1a1a;
+      display: inline-block;
+      padding: 7px;
+      position: relative;
+      text-align: center;
+      transition: background 600ms ease, color 600ms ease;
+    }
+
+    input[type="radio"].radio-toggle {
+      display: none;
+    }
+
+    input[type="radio"].radio-toggle+label {
+      cursor: pointer;
+      min-width: 60px;
+      font-size: 12px;
+    }
+
+    input[type="radio"].radio-toggle+label:hover {
+      background: none;
+      /* color: #1a1a1a; */
+    }
+
+    input[type="radio"].radio-toggle+label:after {
+      background: #1a1a1a;
+      content: "";
+      height: 100%;
+      position: absolute;
+      top: 0;
+      transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+      width: 100%;
+      z-index: 0;
+    }
+
+    input[type="radio"].radio-toggle.radio-toggle-left+label {
+      border-right: 0;
+    }
+
+    input[type="radio"].radio-toggle.radio-toggle-left+label:after {
+      left: 100%;
+    }
+
+    input[type="radio"].radio-toggle.radio-toggle-right+label {
+      margin-left: -5px;
+    }
+
+    input[type="radio"].radio-toggle.radio-toggle-right+label:after {
+      left: -100%;
+    }
+
+    input[type="radio"].radio-toggle:checked+label {
+      cursor: default;
+      color: #fff;
+      transition: color 200ms;
+      z-index: 1;
+    }
+
+    input[type="radio"].radio-toggle:checked+label:after {
+      left: 0;
+    }
+
+
+    /*Original codepen code for toggleswitches*/
+
     /*html,
 body {
 	display: flex;
@@ -116,6 +202,7 @@ body {
 	flex-direction: column;
 	font-family: sans-serif;
 }*/
+
     ul,
     li {
       list-style: none;
@@ -500,6 +587,21 @@ body {
     <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
   </div>
 
+  <h2>RADIO-SWITCH</h2>
+  <div class="page-container">
+    <div class="radio-container">
+      <input id="radio-toggle-on" class="radio-toggle radio-toggle-left" name="radio" value="" type="radio" checked="checked">
+      <label for="radio-toggle-on" class="radio-btn">Översikt</label>
+      <input id="radio-toggle-off" class="radio-toggle radio-toggle-right" name="radio" value="" type="radio">
+      <label for="radio-toggle-off" class="radio-btn">Inzoomat</label>
+    </div>
+    <h3>ernie torsdag</h3>
+    <div class="image-wrap image-wrap--animated"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
+        alt="Image Title"></div>
+    <h3>ernie fredag</h3>
+    <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
+  </div>
+
   <h2>LIGHT IOS-STYLE</h2>
   <div class="page-container">
     <div class="toggle-container">
@@ -513,6 +615,7 @@ body {
     <h3>ernie fredag</h3>
     <div class="image-wrap image-wrap--animated"> <img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180831.gif"></div>
   </div>
+
 
   <br>
   <br>
@@ -546,6 +649,15 @@ body {
       <input class="tgl tgl-ios" id="cb99" type="checkbox">
       <label class="tgl-btn" data-tg-off="Nope" data-tg-on="Yeah!" for="cb99"></label>
     </li>
+    <li class="tg-list-item">
+      <h4>Two-value</h4>
+
+      <input id="radio-toggle-on2" class="radio-toggle radio-toggle-left" name="radio2" value="" type="radio" checked="checked">
+      <label for="radio-toggle-on2" class="radio-btn">No</label>
+      <input id="radio-toggle-off2" class="radio-toggle radio-toggle-right" name="radio2" value="" type="radio">
+      <label for="radio-toggle-off2" class="radio-btn">Yes</label>
+
+    </li>
   </ul>
 
   <br><br><br>
@@ -553,6 +665,7 @@ body {
   <script>
     (function () {
       var inputs = [...document.querySelectorAll(".page-container input")];
+      const comicOffsetWidth = document.querySelector(".image-wrap").offsetWidth;
 
       inputs.forEach((el) => {
         el.addEventListener('click', function (event) {
@@ -572,6 +685,11 @@ body {
         });
         el.addEventListener('scroll', function (event) {
           el.classList.remove("image-wrap--animated");
+          requestAnimationFrame(() => {
+            if (comicOffsetWidth + el.scrollleft >= 900) {
+              el.classList.toggle("image-wrap--gradient");
+            }
+          })
         });
       });
     })();
