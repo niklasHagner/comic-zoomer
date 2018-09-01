@@ -123,12 +123,6 @@
     .radio-container {
       text-align: center;
     }
-    .radio-container-inner {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: -1;
-    }
 
     .radio-btn {
       border: 3px solid #666;
@@ -593,9 +587,9 @@ body {
   <h2>RADIO-SWITCH med översikt/inzoomat</h2>
   <div class="page-container">
     <div class="radio-container">
-      <input id="radio-toggle-on" class="radio-toggle radio-toggle-left" name="radio" value="" type="radio" checked="checked">
+      <input id="radio-toggle-on" class="radio-toggle radio-toggle-left" name="radio1" value="" type="radio" checked="checked">
       <label for="radio-toggle-on" class="radio-btn">Översikt</label>
-      <input id="radio-toggle-off" class="radio-toggle radio-toggle-right" name="radio" value="" type="radio">
+      <input id="radio-toggle-off" class="radio-toggle radio-toggle-right" name="radio1" value="" type="radio">
       <label for="radio-toggle-off" class="radio-btn">Inzoomat</label>
     </div>
     <h3>ernie torsdag</h3>
@@ -609,12 +603,10 @@ body {
   <div class="page-container">
     <div class="radio-container">
       <h4>Stora bilder</h4><br>
-      <div class="radio-container-inner">
-          <input id="radio-toggle-on3" class="radio-toggle radio-toggle-left" name="radio3" value="" type="radio" checked="checked">
-          <label for="radio-toggle-on3" class="radio-btn">Nej</label>
-          <input id="radio-toggle-off3" class="radio-toggle radio-toggle-right" name="radio3" value="" type="radio">
-          <label for="radio-toggle-off3" class="radio-btn">Ja</label>
-      </div>
+        <input id="radio-toggle-on5" class="radio-toggle radio-toggle-left" name="radio5" value="" type="radio" checked="checked">
+        <label for="radio-toggle-on5" class="radio-btn">Nej</label>
+        <input id="radio-toggle-off5" class="radio-toggle radio-toggle-right" name="radio5" value="" type="radio">
+        <label for="radio-toggle-off5" class="radio-btn">Ja</label>
     </div>
     <h3>ernie torsdag</h3>
     <div class="image-wrap image-wrap--animated"><img class="comic" src="https://cached-images.bonnier.news/swift/bilder/ernie/ernie-20180901.gif"
@@ -646,22 +638,22 @@ body {
   <h2>ÖVERSIKT: olika varianter av knappar</h2>
   <div class="page-container">
 
-  <ul class="tg-list">
+    <ul class="tg-list">
       <li class="tg-list-item">
-          <h4>Flat</h4>
-          <input class="tgl tgl-flat" id="cb44" type="checkbox">
-          <label class="tgl-btn" for="cb44"></label>
-        </li>
+        <h4>Flat</h4>
+        <input class="tgl tgl-flat" id="cb44" type="checkbox">
+        <label class="tgl-btn" for="cb44"></label>
+      </li>
       <li class="tg-list-item">
         <h4>Skewed</h4>
         <input class="tgl tgl-skewed" id="cb33" type="checkbox">
         <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="cb33"></label>
       </li>
       <li class="tg-list-item">
-          <h4>Light</h4>
-          <input class="tgl tgl-light" id="cb11" type="checkbox">
-          <label class="tgl-btn" for="cb11"></label>
-        </li>
+        <h4>Light</h4>
+        <input class="tgl tgl-light" id="cb11" type="checkbox">
+        <label class="tgl-btn" for="cb11"></label>
+      </li>
       <li class="tg-list-item">
         <h4>Flip</h4>
         <input class="tgl tgl-flip" id="cb55" type="checkbox">
@@ -678,7 +670,7 @@ body {
         <label for="radio-toggle-on2" class="radio-btn">No</label>
         <input id="radio-toggle-off2" class="radio-toggle radio-toggle-right" name="radio2" value="" type="radio">
         <label for="radio-toggle-off2" class="radio-btn">Yes</label>
-  
+
       </li>
     </ul>
   </div>
